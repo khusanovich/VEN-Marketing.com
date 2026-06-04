@@ -101,7 +101,7 @@
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(124,93,255,${p.o})`;
+      ctx.fillStyle = `rgba(96,64,255,${p.o})`;
       ctx.fill();
 
       for (let j = i + 1; j < particles.length; j++) {
@@ -113,7 +113,7 @@
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(124,93,255,${alpha})`;
+          ctx.strokeStyle = `rgba(96,64,255,${alpha})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
