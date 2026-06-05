@@ -374,6 +374,22 @@
   });
 })();
 
+/* ── Impressum modal ─────────────────────────────────────────── */
+(function () {
+  const trigger  = document.getElementById('impressumTrigger');
+  const modal    = document.getElementById('impressumModal');
+  const closeBtn = document.getElementById('impressumClose');
+  if (!trigger || !modal) return;
+
+  function open()  { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+  trigger.addEventListener('click', e => { e.preventDefault(); open(); });
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
 /* ── Smooth anchor scroll ────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {

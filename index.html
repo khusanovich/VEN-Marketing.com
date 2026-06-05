@@ -506,12 +506,80 @@
       <span>© 2025 VEN Marketing GmbH. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></span>
       <div class="footer__legal">
         <a href="#" data-en="Privacy Policy"    data-de="Datenschutz">Privacy Policy</a>
-        <a href="#" data-en="Imprint"           data-de="Impressum">Imprint</a>
+        <a href="#" id="impressumTrigger" data-en="Imprint" data-de="Impressum">Imprint</a>
         <a href="#" data-en="Cookie Settings"   data-de="Cookie-Einstellungen">Cookie Settings</a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- ── Impressum Modal ───────────────────────────────────────── -->
+<div id="impressumModal" class="im-backdrop" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
+  <div class="im-panel">
+    <button class="im-close" id="impressumClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1l16 16M17 1L1 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="im-header">
+      <span class="tag">Rechtliches</span>
+      <h2 class="im-title" id="impressumTitle">Impressum</h2>
+      <p class="im-subtitle">Angaben gemäß § 5 TMG</p>
+    </div>
+
+    <div class="im-body">
+
+      <section class="im-section">
+        <h3 class="im-section__label">Betreiber</h3>
+        <p class="im-section__value im-company">VEN-MARKETING &amp; INVEST LLC</p>
+      </section>
+
+      <div class="im-divider"></div>
+
+      <section class="im-section">
+        <h3 class="im-section__label">Postanschrift</h3>
+        <address class="im-section__value">
+          1209 Mountain Road PL NE ST EN<br>
+          Albuquerque NM, 87110<br>
+          United States of America
+        </address>
+      </section>
+
+      <div class="im-divider"></div>
+
+      <section class="im-section">
+        <h3 class="im-section__label">Steuer</h3>
+        <p class="im-section__value">Steuernummer: <strong>38-4384979</strong></p>
+      </section>
+
+      <div class="im-divider"></div>
+
+      <section class="im-section">
+        <h3 class="im-section__label">Kontakt</h3>
+        <ul class="im-contact-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.23 1.18 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            <a href="tel:+15053182426">+1 (505) 318 2426</a>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@VEN-Marketing.com">info@VEN-Marketing.com</a>
+          </li>
+        </ul>
+      </section>
+
+      <div class="im-divider"></div>
+
+      <section class="im-section im-section--note">
+        <h3 class="im-section__label">Hinweis zur Streitbeilegung</h3>
+        <p class="im-section__value">
+          Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz) erklärt der Betreiber dieser Website:<br><br>
+          Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
