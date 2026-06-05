@@ -375,7 +375,7 @@
     const data = new FormData(form);
 
     try {
-      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const res  = await fetch('send.php', { method: 'POST', body: data });
       const json = await res.json();
 
       if (json.success) {
