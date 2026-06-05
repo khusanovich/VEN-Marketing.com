@@ -6,6 +6,7 @@
   <title>VEN Marketing — We Grow Brands</title>
   <meta name="description" content="VEN Marketing — Digital strategy, performance marketing, and brand growth." />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/legal.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -413,13 +414,18 @@
         <h2 class="section-title" data-en="Let's build something great together." data-de="Lassen Sie uns gemeinsam etwas Großartiges aufbauen.">Let's build something great together.</h2>
         <p data-en="Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email." data-de="Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden mit einer maßgeschneiderten Antwort.">Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email.</p>
         <div class="contact__details">
-          <div class="contact__detail"><span>✉</span><a href="mailto:hello@ven-marketing.com">hello@ven-marketing.com</a></div>
-          <div class="contact__detail"><span>☎</span><a href="tel:+4930000000">+49 30 000 000</a></div>
-          <div class="contact__detail"><span>◎</span><span data-en="Berlin, Germany" data-de="Berlin, Deutschland">Berlin, Germany</span></div>
+          <div class="contact__detail"><span>✉</span><a href="mailto:info@VEN-Marketing.com">info@VEN-Marketing.com</a></div>
+          <div class="contact__detail"><span>☎</span><a href="tel:+15053182426">+1 (505) 318 2426</a></div>
+          <div class="contact__detail"><span>◎</span><span data-en="Albuquerque, NM, USA" data-de="Albuquerque, NM, USA">Albuquerque, NM, USA</span></div>
         </div>
       </div>
       <div class="contact__right">
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" novalidate action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms: get your free key at https://web3forms.com -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New inquiry from VEN-Marketing.com" />
+          <input type="hidden" name="from_name" value="VEN Marketing Website" />
+          <input type="checkbox" name="botcheck" style="display:none" />
           <div class="form-row">
             <div class="form-group">
               <label data-en="Your Name" data-de="Ihr Name">Your Name</label>
@@ -503,15 +509,74 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2025 VEN Marketing GmbH. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></span>
+      <span>© 2025 VEN-Marketing &amp; Invest LLC. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></span>
       <div class="footer__legal">
-        <a href="#" data-en="Privacy Policy"    data-de="Datenschutz">Privacy Policy</a>
+        <a href="datenschutz.html" data-en="Privacy Policy" data-de="Datenschutz">Privacy Policy</a>
         <a href="#" id="impressumTrigger" data-en="Imprint" data-de="Impressum">Imprint</a>
-        <a href="#" data-en="Cookie Settings"   data-de="Cookie-Einstellungen">Cookie Settings</a>
+        <a href="#" id="cookieSettingsTrigger" data-en="Cookie Settings" data-de="Cookie-Einstellungen">Cookie Settings</a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- ── Cookie Banner ────────────────────────────────────────── -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-banner__text">
+    Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.
+    Lesen Sie unsere <a href="datenschutz.html">Datenschutzerklärung</a> für mehr Informationen.
+  </p>
+  <div class="cookie-banner__actions">
+    <button class="btn btn--ghost" id="cookieCustomise" style="font-size:0.85rem;padding:0.6rem 1.2rem;">Einstellungen</button>
+    <button class="btn btn--primary" id="cookieAcceptAll" style="font-size:0.85rem;padding:0.6rem 1.2rem;">Alle akzeptieren</button>
+  </div>
+</div>
+
+<!-- ── Cookie Settings Modal ─────────────────────────────────── -->
+<div class="cookie-modal__backdrop" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal__head">
+      <span class="tag">Cookie-Einstellungen</span>
+      <h2 id="cookieModalTitle">Datenschutz-Präferenzen</h2>
+      <p>Wählen Sie, welche Cookies Sie zulassen möchten. Notwendige Cookies sind immer aktiv, da die Website ohne sie nicht funktioniert.</p>
+    </div>
+    <div class="cookie-modal__body">
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__title">Notwendig</div>
+          <div class="cookie-row__desc">Spracheinstellung, Cookie-Präferenzen. Ohne diese Cookies funktioniert die Website nicht korrekt.</div>
+        </div>
+        <label class="toggle" aria-label="Notwendige Cookies">
+          <input type="checkbox" id="cookieNecessary" checked disabled />
+          <span class="toggle__track"></span>
+        </label>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__title">Analyse</div>
+          <div class="cookie-row__desc">Helfen uns zu verstehen, wie Besucher mit der Website interagieren. Daten werden anonymisiert erfasst.</div>
+        </div>
+        <label class="toggle" aria-label="Analyse-Cookies">
+          <input type="checkbox" id="cookieAnalytics" />
+          <span class="toggle__track"></span>
+        </label>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__title">Marketing</div>
+          <div class="cookie-row__desc">Ermöglichen personalisierte Werbung auf anderen Plattformen. Derzeit nicht aktiv eingesetzt.</div>
+        </div>
+        <label class="toggle" aria-label="Marketing-Cookies">
+          <input type="checkbox" id="cookieMarketing" />
+          <span class="toggle__track"></span>
+        </label>
+      </div>
+    </div>
+    <div class="cookie-modal__foot">
+      <button class="btn btn--ghost" id="cookieRejectAll" style="font-size:0.88rem;">Nur notwendige</button>
+      <button class="btn btn--primary" id="cookieSaveSettings" style="font-size:0.88rem;">Auswahl speichern</button>
+    </div>
+  </div>
+</div>
 
 <!-- ── Impressum Modal ───────────────────────────────────────── -->
 <div id="impressumModal" class="im-backdrop" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">

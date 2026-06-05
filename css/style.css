@@ -877,6 +877,12 @@ input,textarea,select{font-family:inherit;color:var(--text)}
 .tilt-card { transition: transform 0.12s var(--ease), box-shadow 0.12s var(--ease); }
 
 /* ── Responsive ──────────────────────────────────────────────── */
+.form-error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
 /* ── Impressum Modal ─────────────────────────────────────────── */
 .im-backdrop {
   position: fixed; inset: 0; z-index: 2000;

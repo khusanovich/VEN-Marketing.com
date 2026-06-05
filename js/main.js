@@ -358,20 +358,102 @@
   }
 })();
 
-/* ── Contact form ────────────────────────────────────────────── */
+/* ── Contact form (Web3Forms) ────────────────────────────────── */
 (function () {
   const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
   if (!form) return;
-  form.addEventListener('submit', e => {
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '...'; btn.disabled = true;
-    setTimeout(() => {
-      form.style.display = 'none';
-      success.classList.add('visible');
-    }, 900);
+    const btn  = form.querySelector('button[type="submit"]');
+    const lang = document.documentElement.lang || 'en';
+
+    btn.disabled    = true;
+    btn.textContent = lang === 'de' ? 'Wird gesendet…' : 'Sending…';
+
+    const data = new FormData(form);
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+
+      if (json.success) {
+        form.style.display = 'none';
+        success.classList.add('visible');
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.disabled    = false;
+      btn.textContent = lang === 'de' ? 'Nachricht senden →' : 'Send Message →';
+      const errEl = form.querySelector('.form-error') || (() => {
+        const p = document.createElement('p');
+        p.className = 'form-error';
+        form.appendChild(p);
+        return p;
+      })();
+      errEl.textContent = lang === 'de'
+        ? 'Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.'
+        : 'Could not send. Please try again or email us directly.';
+    }
   });
+})();
+
+/* ── Cookie consent ──────────────────────────────────────────── */
+(function () {
+  const KEY = 'ven-cookie-consent';
+
+  const banner       = document.getElementById('cookieBanner');
+  const modal        = document.getElementById('cookieModal');
+  const acceptAllBtn = document.getElementById('cookieAcceptAll');
+  const customiseBtn = document.getElementById('cookieCustomise');
+  const rejectAllBtn = document.getElementById('cookieRejectAll');
+  const saveBtn      = document.getElementById('cookieSaveSettings');
+  const settingsTrigger = document.getElementById('cookieSettingsTrigger');
+  const analyticsToggle = document.getElementById('cookieAnalytics');
+  const marketingToggle = document.getElementById('cookieMarketing');
+
+  if (!banner) return;
+
+  function getConsent() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch { return null; }
+  }
+
+  function saveConsent(analytics, marketing) {
+    const consent = { analytics, marketing, date: new Date().toISOString() };
+    localStorage.setItem(KEY, JSON.stringify(consent));
+    hideBanner();
+    closeModal();
+  }
+
+  function showBanner() { setTimeout(() => banner.classList.add('show'), 800); }
+  function hideBanner() { banner.classList.remove('show'); }
+  function openModal()  {
+    const c = getConsent();
+    if (c) {
+      analyticsToggle.checked = !!c.analytics;
+      marketingToggle.checked = !!c.marketing;
+    }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+  // Show banner only if no consent recorded
+  if (!getConsent()) showBanner();
+
+  acceptAllBtn?.addEventListener('click', () => saveConsent(true, true));
+  rejectAllBtn?.addEventListener('click', () => saveConsent(false, false));
+  customiseBtn?.addEventListener('click', () => { hideBanner(); openModal(); });
+  saveBtn?.addEventListener('click', () => saveConsent(analyticsToggle.checked, marketingToggle.checked));
+
+  // Footer "Cookie Settings" link — always opens modal
+  settingsTrigger?.addEventListener('click', e => { e.preventDefault(); openModal(); });
+
+  // Close on backdrop click or Escape
+  modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal(); });
 })();
 
 /* ── Impressum modal ─────────────────────────────────────────── */
