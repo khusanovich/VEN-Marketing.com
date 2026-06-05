@@ -4,490 +4,421 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VEN Marketing — We Grow Brands</title>
-  <meta name="description" content="VEN Marketing — Digital strategy, performance marketing, and brand growth for ambitious companies." />
+  <meta name="description" content="VEN Marketing — Digital strategy, performance marketing, and brand growth." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<!-- ===== CURSOR ===== -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursor-follower"></div>
+<!-- Blob cursor -->
+<div class="blob" id="blob"></div>
 
-<!-- ===== NAV ===== -->
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__logo">VEN<span>.</span></div>
+    <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
+  </div>
+</div>
+
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#hero" class="nav__logo">
-    <span class="nav__logo-ven">VEN</span><span class="nav__logo-dot">.</span>
-  </a>
-
+  <a href="#hero" class="nav__logo">VEN<span class="nav__dot">.</span></a>
   <ul class="nav__links">
     <li><a href="#services" class="nav__link" data-en="Services" data-de="Leistungen">Services</a></li>
-    <li><a href="#about" class="nav__link" data-en="About" data-de="Über uns">About</a></li>
-    <li><a href="#results" class="nav__link" data-en="Results" data-de="Ergebnisse">Results</a></li>
-    <li><a href="#process" class="nav__link" data-en="Process" data-de="Prozess">Process</a></li>
-    <li><a href="#contact" class="nav__link" data-en="Contact" data-de="Kontakt">Contact</a></li>
+    <li><a href="#about"    class="nav__link" data-en="About"    data-de="Über uns">About</a></li>
+    <li><a href="#results"  class="nav__link" data-en="Results"  data-de="Ergebnisse">Results</a></li>
+    <li><a href="#process"  class="nav__link" data-en="Process"  data-de="Prozess">Process</a></li>
+    <li><a href="#contact"  class="nav__link" data-en="Contact"  data-de="Kontakt">Contact</a></li>
   </ul>
-
   <div class="nav__right">
     <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-      <span class="lang-toggle__inner">
-        <span class="lang-toggle__option active" data-lang="en">EN</span>
-        <span class="lang-toggle__divider">|</span>
-        <span class="lang-toggle__option" data-lang="de">DE</span>
-      </span>
+      <span class="lang-toggle__opt active" data-lang="en">EN</span>
+      <span class="lang-toggle__sep">|</span>
+      <span class="lang-toggle__opt" data-lang="de">DE</span>
     </button>
-    <a href="#contact" class="btn btn--nav" data-en="Let's Talk" data-de="Gespräch">Let's Talk</a>
-    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+    <a href="#contact" class="btn btn--primary magnetic" data-en="Let's Talk" data-de="Gespräch">Let's Talk</a>
+    <button class="nav__burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#services" class="mobile-menu__link" data-en="Services" data-de="Leistungen">Services</a></li>
-    <li><a href="#about" class="mobile-menu__link" data-en="About" data-de="Über uns">About</a></li>
-    <li><a href="#results" class="mobile-menu__link" data-en="Results" data-de="Ergebnisse">Results</a></li>
-    <li><a href="#process" class="mobile-menu__link" data-en="Process" data-de="Prozess">Process</a></li>
-    <li><a href="#contact" class="mobile-menu__link" data-en="Contact" data-de="Kontakt">Contact</a></li>
+    <li><a href="#services" data-en="Services" data-de="Leistungen">Services</a></li>
+    <li><a href="#about"    data-en="About"    data-de="Über uns">About</a></li>
+    <li><a href="#results"  data-en="Results"  data-de="Ergebnisse">Results</a></li>
+    <li><a href="#process"  data-en="Process"  data-de="Prozess">Process</a></li>
+    <li><a href="#contact"  data-en="Contact"  data-de="Kontakt">Contact</a></li>
   </ul>
-  <a href="#contact" class="btn btn--primary mt-2" data-en="Let's Talk" data-de="Gespräch starten">Let's Talk</a>
+  <a href="#contact" class="btn btn--primary" data-en="Let's Talk" data-de="Gespräch starten">Let's Talk</a>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero" id="hero">
-  <canvas class="hero__canvas" id="heroCanvas"></canvas>
-  <div class="hero__noise"></div>
+  <div class="hero__ring hero__ring--1"></div>
+  <div class="hero__ring hero__ring--2"></div>
+  <div class="hero__dot hero__dot--a"></div>
+  <div class="hero__dot hero__dot--b"></div>
+  <div class="hero__dot hero__dot--c"></div>
 
-  <div class="hero__content container">
-    <div class="hero__badge reveal-up">
-      <span class="hero__badge-dot"></span>
+  <div class="hero__body" id="heroBody">
+    <div class="hero__badge">
+      <span class="hero__pulse"></span>
       <span data-en="Digital Marketing Agency" data-de="Digitale Marketing-Agentur">Digital Marketing Agency</span>
     </div>
 
-    <h1 class="hero__headline reveal-up">
-      <span class="hero__headline-line" data-en="We don't just" data-de="Wir machen">We don't just</span>
-      <span class="hero__headline-line hero__headline-line--accent">
-        <span class="hero__headline-gradient" data-en="market brands." data-de="Marken groß.">market brands.</span>
+    <h1 class="hero__title" id="heroParallax">
+      <span class="hero__row" data-depth="0.2">
+        <span class="hero__row-text" data-en="We don't just" data-de="Wir machen nicht nur">We don't just</span>
       </span>
-      <span class="hero__headline-line" data-en="We ignite them." data-de="Wir zünden sie.">We ignite them.</span>
+      <span class="hero__row hero__row--word" data-depth="0.6">
+        <span class="hero__word-slot">
+          <span class="hero__word" id="heroWord">ignite</span>
+        </span>
+      </span>
+      <span class="hero__row" data-depth="0.15">
+        <span class="hero__row-text" data-en="brands into legends." data-de="Marken zu Legenden.">brands into legends.</span>
+      </span>
     </h1>
 
-    <p class="hero__sub reveal-up" data-en="VEN Marketing combines data intelligence with creative power to deliver measurable growth for ambitious companies — in Germany and worldwide." data-de="VEN Marketing verbindet Datenintelligenz mit kreativer Stärke, um messbares Wachstum für ambitionierte Unternehmen zu erzielen — in Deutschland und weltweit.">
+    <p class="hero__sub"
+       data-en="VEN Marketing combines data intelligence with creative power to deliver measurable growth for ambitious companies — in Germany and worldwide."
+       data-de="VEN Marketing verbindet Datenintelligenz mit kreativer Stärke, um messbares Wachstum für ambitionierte Unternehmen zu erzielen — in Deutschland und weltweit.">
       VEN Marketing combines data intelligence with creative power to deliver measurable growth for ambitious companies — in Germany and worldwide.
     </p>
 
-    <div class="hero__actions reveal-up">
-      <a href="#contact" class="btn btn--primary btn--large" data-en="Start Growing" data-de="Wachstum starten">Start Growing</a>
-      <a href="#results" class="btn btn--ghost btn--large" data-en="See Our Results" data-de="Unsere Ergebnisse">See Our Results</a>
+    <div class="hero__actions">
+      <a href="#contact" class="btn btn--primary btn--lg magnetic" data-en="Start Growing" data-de="Wachstum starten">Start Growing</a>
+      <a href="#results" class="btn btn--ghost btn--lg magnetic"   data-en="See Our Results" data-de="Unsere Ergebnisse">See Our Results</a>
     </div>
+  </div>
 
-    <div class="hero__stats reveal-up">
-      <div class="hero__stat">
-        <span class="hero__stat-num" data-target="180">0</span><span class="hero__stat-suffix">+</span>
-        <span class="hero__stat-label" data-en="Projects Delivered" data-de="Projekte abgeschlossen">Projects Delivered</span>
-      </div>
-      <div class="hero__stat-divider"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-num" data-target="340">0</span><span class="hero__stat-suffix">%</span>
-        <span class="hero__stat-label" data-en="Avg. ROI Growth" data-de="Ø ROI-Wachstum">Avg. ROI Growth</span>
-      </div>
-      <div class="hero__stat-divider"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-num" data-target="12">0</span><span class="hero__stat-suffix"> yrs</span>
-        <span class="hero__stat-label" data-en="Industry Experience" data-de="Branchenerfahrung">Industry Experience</span>
-      </div>
+  <div class="hero__stats">
+    <div class="hero__stat">
+      <span class="hero__stat-val"><span class="count" data-target="180">0</span>+</span>
+      <span class="hero__stat-lbl" data-en="Projects Delivered"   data-de="Projekte">Projects Delivered</span>
+    </div>
+    <div class="hero__stat-sep"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-val"><span class="count" data-target="340">0</span>%</span>
+      <span class="hero__stat-lbl" data-en="Avg. ROI Growth"      data-de="Ø ROI-Wachstum">Avg. ROI Growth</span>
+    </div>
+    <div class="hero__stat-sep"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-val"><span class="count" data-target="94">0</span>%</span>
+      <span class="hero__stat-lbl" data-en="Client Retention"     data-de="Kundenbindung">Client Retention</span>
+    </div>
+    <div class="hero__stat-sep"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-val">€<span class="count" data-target="48">0</span>M+</span>
+      <span class="hero__stat-lbl" data-en="Media Spend Managed"  data-de="Mediabudget verwaltet">Media Spend Managed</span>
     </div>
   </div>
 
   <div class="hero__scroll">
-    <div class="hero__scroll-line"></div>
+    <div class="hero__scroll-mouse">
+      <div class="hero__scroll-wheel"></div>
+    </div>
     <span data-en="Scroll" data-de="Scrollen">Scroll</span>
   </div>
 </section>
 
-<!-- ===== MARQUEE ===== -->
-<div class="marquee-strip">
-  <div class="marquee-strip__inner">
-    <span>SEO &amp; SEA</span><span class="marquee-dot">✦</span>
-    <span>Performance Marketing</span><span class="marquee-dot">✦</span>
-    <span>Brand Strategy</span><span class="marquee-dot">✦</span>
-    <span>Content Marketing</span><span class="marquee-dot">✦</span>
-    <span>Marketing Automation</span><span class="marquee-dot">✦</span>
-    <span>Social Media</span><span class="marquee-dot">✦</span>
-    <span>Analytics &amp; BI</span><span class="marquee-dot">✦</span>
-    <span>E-Commerce</span><span class="marquee-dot">✦</span>
-    <span>B2B Lead Gen</span><span class="marquee-dot">✦</span>
-    <!-- duplicate for seamless loop -->
-    <span>SEO &amp; SEA</span><span class="marquee-dot">✦</span>
-    <span>Performance Marketing</span><span class="marquee-dot">✦</span>
-    <span>Brand Strategy</span><span class="marquee-dot">✦</span>
-    <span>Content Marketing</span><span class="marquee-dot">✦</span>
-    <span>Marketing Automation</span><span class="marquee-dot">✦</span>
-    <span>Social Media</span><span class="marquee-dot">✦</span>
-    <span>Analytics &amp; BI</span><span class="marquee-dot">✦</span>
-    <span>E-Commerce</span><span class="marquee-dot">✦</span>
-    <span>B2B Lead Gen</span><span class="marquee-dot">✦</span>
+<!-- ══ MARQUEE ═══════════════════════════════════════════════════ -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>SEO &amp; SEA</span><span class="marquee__gem">✦</span>
+    <span>Performance Marketing</span><span class="marquee__gem">✦</span>
+    <span>Brand Strategy</span><span class="marquee__gem">✦</span>
+    <span>Content Marketing</span><span class="marquee__gem">✦</span>
+    <span>Marketing Automation</span><span class="marquee__gem">✦</span>
+    <span>Social Media</span><span class="marquee__gem">✦</span>
+    <span>Analytics &amp; BI</span><span class="marquee__gem">✦</span>
+    <span>E-Commerce</span><span class="marquee__gem">✦</span>
+    <span>B2B Lead Gen</span><span class="marquee__gem">✦</span>
+    <span>SEO &amp; SEA</span><span class="marquee__gem">✦</span>
+    <span>Performance Marketing</span><span class="marquee__gem">✦</span>
+    <span>Brand Strategy</span><span class="marquee__gem">✦</span>
+    <span>Content Marketing</span><span class="marquee__gem">✦</span>
+    <span>Marketing Automation</span><span class="marquee__gem">✦</span>
+    <span>Social Media</span><span class="marquee__gem">✦</span>
+    <span>Analytics &amp; BI</span><span class="marquee__gem">✦</span>
+    <span>E-Commerce</span><span class="marquee__gem">✦</span>
+    <span>B2B Lead Gen</span><span class="marquee__gem">✦</span>
   </div>
 </div>
 
-<!-- ===== SERVICES ===== -->
+<!-- ══ SERVICES ══════════════════════════════════════════════════ -->
 <section class="services section" id="services">
   <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag" data-en="What We Do" data-de="Was wir tun">What We Do</span>
-      <h2 class="section-title" data-en="Services built for<br>measurable impact" data-de="Leistungen für<br>messbaren Erfolg">Services built for<br>measurable impact</h2>
+    <div class="services__hd">
+      <div>
+        <span class="tag" data-en="What We Do" data-de="Was wir tun">What We Do</span>
+        <h2 class="section-title" data-en="Services built for measurable impact" data-de="Leistungen für messbaren Erfolg">Services built for measurable impact</h2>
+      </div>
+      <div class="services__arrows">
+        <button class="arrow-btn" id="sliderPrev" aria-label="Previous">←</button>
+        <button class="arrow-btn" id="sliderNext" aria-label="Next">→</button>
+      </div>
     </div>
+  </div>
 
-    <div class="services__grid">
+  <div class="services__slider" id="servicesSlider">
+    <div class="services__track" id="servicesTrack">
 
-      <div class="service-card reveal-up" data-delay="0">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M16 32l8-16 8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 27h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span class="service-card__tag" data-en="Growth" data-de="Wachstum">Growth</span>
-        <h3 class="service-card__title" data-en="Performance Marketing" data-de="Performance Marketing">Performance Marketing</h3>
-        <p class="service-card__desc" data-en="Google Ads, Meta, LinkedIn — precision campaigns that convert. Every euro works harder with our data-driven approach." data-de="Google Ads, Meta, LinkedIn — präzise Kampagnen, die konvertieren. Jeder Euro arbeitet härter mit unserem datengetriebenen Ansatz.">Google Ads, Meta, LinkedIn — precision campaigns that convert. Every euro works harder with our data-driven approach.</p>
-        <a href="#contact" class="service-card__link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
+      <div class="svc-card tilt-card">
+        <div class="svc-card__num">01</div>
+        <div class="svc-card__icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M16 32l8-16 8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 27h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <span class="svc-tag" data-en="Growth" data-de="Wachstum">Growth</span>
+        <h3 data-en="Performance Marketing" data-de="Performance Marketing">Performance Marketing</h3>
+        <p data-en="Google Ads, Meta, LinkedIn — precision campaigns that convert. Every euro works harder with our data-driven approach." data-de="Google Ads, Meta, LinkedIn — präzise Kampagnen, die konvertieren. Jeder Euro arbeitet härter mit unserem datengetriebenen Ansatz.">Google Ads, Meta, LinkedIn — precision campaigns that convert. Every euro works harder with our data-driven approach.</p>
+        <a href="#contact" class="svc-link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
       </div>
 
-      <div class="service-card reveal-up" data-delay="100">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M8 40V20l16-12 16 12v20H8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M18 40v-12h12v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-        </div>
-        <span class="service-card__tag" data-en="Visibility" data-de="Sichtbarkeit">Visibility</span>
-        <h3 class="service-card__title" data-en="SEO &amp; Content Strategy" data-de="SEO &amp; Content-Strategie">SEO &amp; Content Strategy</h3>
-        <p class="service-card__desc" data-en="Rank where it matters. We craft content ecosystems that attract, educate, and convert your ideal audience organically." data-de="Ranking wo es zählt. Wir entwickeln Content-Ökosysteme, die Ihre Zielgruppe organisch anziehen, informieren und konvertieren.">Rank where it matters. We craft content ecosystems that attract, educate, and convert your ideal audience organically.</p>
-        <a href="#contact" class="service-card__link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
+      <div class="svc-card tilt-card">
+        <div class="svc-card__num">02</div>
+        <div class="svc-card__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 40V20l16-12 16 12v20H8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M18 40v-12h12v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <span class="svc-tag" data-en="Visibility" data-de="Sichtbarkeit">Visibility</span>
+        <h3 data-en="SEO &amp; Content Strategy" data-de="SEO &amp; Content-Strategie">SEO &amp; Content Strategy</h3>
+        <p data-en="Rank where it matters. We craft content ecosystems that attract, educate, and convert your ideal audience organically." data-de="Ranking wo es zählt. Wir entwickeln Content-Ökosysteme, die Ihre Zielgruppe organisch anziehen, informieren und konvertieren.">Rank where it matters. We craft content ecosystems that attract, educate, and convert your ideal audience organically.</p>
+        <a href="#contact" class="svc-link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
       </div>
 
-      <div class="service-card reveal-up" data-delay="200">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M16 24h16M16 32h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="18" r="4" stroke="currentColor" stroke-width="2"/></svg>
-        </div>
-        <span class="service-card__tag" data-en="Automation" data-de="Automatisierung">Automation</span>
-        <h3 class="service-card__title" data-en="Marketing Automation" data-de="Marketing-Automatisierung">Marketing Automation</h3>
-        <p class="service-card__desc" data-en="HubSpot, Salesforce, ActiveCampaign — we build automated funnels that nurture leads 24/7 while you focus on the big picture." data-de="HubSpot, Salesforce, ActiveCampaign — wir bauen automatisierte Funnels, die Leads rund um die Uhr pflegen.">HubSpot, Salesforce, ActiveCampaign — we build automated funnels that nurture leads 24/7 while you focus on the big picture.</p>
-        <a href="#contact" class="service-card__link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
+      <div class="svc-card tilt-card">
+        <div class="svc-card__num">03</div>
+        <div class="svc-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M16 24h16M16 32h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="18" r="4" stroke="currentColor" stroke-width="2"/></svg></div>
+        <span class="svc-tag" data-en="Automation" data-de="Automatisierung">Automation</span>
+        <h3 data-en="Marketing Automation" data-de="Marketing-Automatisierung">Marketing Automation</h3>
+        <p data-en="HubSpot, Salesforce, ActiveCampaign — we build automated funnels that nurture leads 24/7 while you focus on the big picture." data-de="HubSpot, Salesforce, ActiveCampaign — wir bauen automatisierte Funnels, die Leads rund um die Uhr pflegen.">HubSpot, Salesforce, ActiveCampaign — we build automated funnels that nurture leads 24/7 while you focus on the big picture.</p>
+        <a href="#contact" class="svc-link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
       </div>
 
-      <div class="service-card reveal-up" data-delay="0">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span class="service-card__tag" data-en="Social" data-de="Sozial">Social</span>
-        <h3 class="service-card__title" data-en="Social Media &amp; Community" data-de="Social Media &amp; Community">Social Media &amp; Community</h3>
-        <p class="service-card__desc" data-en="Build an audience that buys. Organic growth strategies and paid social that turn followers into loyal customers." data-de="Bauen Sie ein Publikum auf, das kauft. Organische Wachstumsstrategien und Paid Social, das Follower in treue Kunden verwandelt.">Build an audience that buys. Organic growth strategies and paid social that turn followers into loyal customers.</p>
-        <a href="#contact" class="service-card__link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
+      <div class="svc-card tilt-card">
+        <div class="svc-card__num">04</div>
+        <div class="svc-card__icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <span class="svc-tag" data-en="Social" data-de="Sozial">Social</span>
+        <h3 data-en="Social Media &amp; Community" data-de="Social Media &amp; Community">Social Media &amp; Community</h3>
+        <p data-en="Build an audience that buys. Organic growth strategies and paid social that turn followers into loyal customers." data-de="Bauen Sie ein Publikum auf, das kauft. Organische Wachstumsstrategien und Paid Social, das Follower in treue Kunden verwandelt.">Build an audience that buys. Organic growth strategies and paid social that turn followers into loyal customers.</p>
+        <a href="#contact" class="svc-link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
       </div>
 
-      <div class="service-card reveal-up" data-delay="100">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M12 36l8-8 6 6 8-12 8 14H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <span class="service-card__tag" data-en="Intelligence" data-de="Intelligenz">Intelligence</span>
-        <h3 class="service-card__title" data-en="Analytics &amp; Data Strategy" data-de="Analytics &amp; Datenstrategie">Analytics &amp; Data Strategy</h3>
-        <p class="service-card__desc" data-en="From GA4 to custom BI dashboards — we turn your data into decisions that drive growth and eliminate guesswork." data-de="Von GA4 bis zu individuellen BI-Dashboards — wir verwandeln Ihre Daten in Entscheidungen, die Wachstum antreiben.">From GA4 to custom BI dashboards — we turn your data into decisions that drive growth and eliminate guesswork.</p>
-        <a href="#contact" class="service-card__link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
+      <div class="svc-card tilt-card">
+        <div class="svc-card__num">05</div>
+        <div class="svc-card__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M12 36l8-8 6 6 8-12 8 14H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="svc-tag" data-en="Intelligence" data-de="Intelligenz">Intelligence</span>
+        <h3 data-en="Analytics &amp; Data Strategy" data-de="Analytics &amp; Datenstrategie">Analytics &amp; Data Strategy</h3>
+        <p data-en="From GA4 to custom BI dashboards — we turn your data into decisions that drive growth and eliminate guesswork." data-de="Von GA4 bis zu individuellen BI-Dashboards — wir verwandeln Ihre Daten in Entscheidungen, die Wachstum antreiben.">From GA4 to custom BI dashboards — we turn your data into decisions that drive growth and eliminate guesswork.</p>
+        <a href="#contact" class="svc-link" data-en="Learn more →" data-de="Mehr erfahren →">Learn more →</a>
       </div>
 
-      <div class="service-card service-card--cta reveal-up" data-delay="200">
-        <div class="service-card__cta-inner">
-          <span class="service-card__cta-emoji">✦</span>
-          <h3 data-en="Ready to scale your brand?" data-de="Bereit, Ihre Marke zu skalieren?">Ready to scale your brand?</h3>
-          <p data-en="Let's build your custom growth strategy." data-de="Lassen Sie uns Ihre individuelle Wachstumsstrategie entwickeln.">Let's build your custom growth strategy.</p>
-          <a href="#contact" class="btn btn--primary" data-en="Get Free Audit" data-de="Kostenloses Audit">Get Free Audit</a>
-        </div>
+      <div class="svc-card svc-card--cta tilt-card">
+        <div class="svc-card__num">✦</div>
+        <h3 data-en="Ready to scale your brand?" data-de="Bereit, Ihre Marke zu skalieren?">Ready to scale your brand?</h3>
+        <p data-en="Let's build your custom growth strategy." data-de="Lassen Sie uns Ihre individuelle Wachstumsstrategie entwickeln.">Let's build your custom growth strategy.</p>
+        <a href="#contact" class="btn btn--white magnetic" data-en="Get Free Audit" data-de="Kostenloses Audit">Get Free Audit</a>
       </div>
 
     </div>
   </div>
+
+  <div class="slider-progress-wrap container">
+    <div class="slider-progress-track"><div class="slider-progress-fill" id="sliderProgress"></div></div>
+  </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
+<!-- ══ ABOUT ══════════════════════════════════════════════════════ -->
 <section class="about section" id="about">
   <div class="container">
     <div class="about__grid">
-
-      <div class="about__visual reveal-left">
-        <div class="about__image-wrap">
-          <div class="about__image-glow"></div>
-          <div class="about__image-placeholder">
-            <div class="about__monogram">V</div>
-          </div>
-        </div>
-        <div class="about__card about__card--floating">
-          <div class="about__card-icon">🏆</div>
-          <div>
-            <strong data-en="Top Agency 2024" data-de="Top-Agentur 2024">Top Agency 2024</strong>
-            <span data-en="Clutch Verified" data-de="Clutch verifiziert">Clutch Verified</span>
-          </div>
-        </div>
-        <div class="about__card about__card--floating about__card--bottom">
-          <div class="about__card-icon">🌍</div>
-          <div>
-            <strong data-en="12 Countries" data-de="12 Länder">12 Countries</strong>
-            <span data-en="Active Clients" data-de="Aktive Kunden">Active Clients</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="about__content reveal-right">
-        <span class="section-tag" data-en="About VEN" data-de="Über VEN">About VEN</span>
-        <h2 class="section-title" data-en="We speak the language<br>of growth — fluently." data-de="Wir sprechen die Sprache<br>des Wachstums — fließend.">We speak the language<br>of growth — fluently.</h2>
-        <p class="about__text" data-en="VEN Marketing was founded on a simple belief: great marketing is equal parts art and science. We combine creative storytelling with ruthless analytical discipline to build campaigns that don't just look good — they perform." data-de="VEN Marketing wurde auf einer einfachen Überzeugung gegründet: Großartiges Marketing ist zu gleichen Teilen Kunst und Wissenschaft. Wir verbinden kreatives Storytelling mit analytischer Disziplin, um Kampagnen zu entwickeln, die nicht nur gut aussehen — sie performen.">
+      <div class="about__left">
+        <span class="tag" data-en="About VEN" data-de="Über VEN">About VEN</span>
+        <h2 class="section-title" data-en="We speak the language of growth — fluently." data-de="Wir sprechen die Sprache des Wachstums — fließend.">We speak the language of growth — fluently.</h2>
+        <p class="about__text"
+           data-en="VEN Marketing was founded on a simple belief: great marketing is equal parts art and science. We combine creative storytelling with ruthless analytical discipline to build campaigns that don't just look good — they perform."
+           data-de="VEN Marketing wurde auf einer einfachen Überzeugung gegründet: Großartiges Marketing ist zu gleichen Teilen Kunst und Wissenschaft. Wir verbinden kreatives Storytelling mit analytischer Disziplin.">
           VEN Marketing was founded on a simple belief: great marketing is equal parts art and science. We combine creative storytelling with ruthless analytical discipline to build campaigns that don't just look good — they perform.
         </p>
-        <p class="about__text" data-en="From nimble startups to established enterprises, we tailor every strategy to your specific market, audience, and ambitious growth targets. No templates. No one-size-fits-all. Just results." data-de="Von agilen Startups bis zu etablierten Unternehmen passen wir jede Strategie an Ihren spezifischen Markt, Ihre Zielgruppe und Ihre Wachstumsziele an. Keine Templates. Kein Einheitsformat. Nur Ergebnisse.">
-          From nimble startups to established enterprises, we tailor every strategy to your specific market, audience, and ambitious growth targets. No templates. No one-size-fits-all. Just results.
-        </p>
-
-        <div class="about__pillars">
-          <div class="about__pillar">
-            <div class="about__pillar-icon">◈</div>
-            <div>
-              <strong data-en="Data-Driven" data-de="Datengetrieben">Data-Driven</strong>
-              <span data-en="Every decision backed by insight" data-de="Jede Entscheidung durch Insights gestützt">Every decision backed by insight</span>
-            </div>
-          </div>
-          <div class="about__pillar">
-            <div class="about__pillar-icon">◈</div>
-            <div>
-              <strong data-en="Full-Funnel" data-de="Full-Funnel">Full-Funnel</strong>
-              <span data-en="Awareness to conversion and beyond" data-de="Von Awareness bis Conversion und weiter">Awareness to conversion and beyond</span>
-            </div>
-          </div>
-          <div class="about__pillar">
-            <div class="about__pillar-icon">◈</div>
-            <div>
-              <strong data-en="Transparent" data-de="Transparent">Transparent</strong>
-              <span data-en="Clear reporting, honest conversations" data-de="Klares Reporting, ehrliche Gespräche">Clear reporting, honest conversations</span>
-            </div>
-          </div>
+        <div class="about__pills">
+          <span class="pill" data-en="Data-Driven"  data-de="Datengetrieben">Data-Driven</span>
+          <span class="pill" data-en="Full-Funnel"  data-de="Full-Funnel">Full-Funnel</span>
+          <span class="pill" data-en="Transparent"  data-de="Transparent">Transparent</span>
+          <span class="pill" data-en="ROI-Focused"  data-de="ROI-fokussiert">ROI-Focused</span>
         </div>
-
-        <a href="#contact" class="btn btn--primary mt-2" data-en="Meet the Team" data-de="Das Team kennenlernen">Meet the Team</a>
+        <a href="#contact" class="btn btn--primary magnetic" data-en="Meet the Team" data-de="Das Team kennenlernen">Meet the Team</a>
       </div>
-
+      <div class="about__right">
+        <div class="about__big-card tilt-card">
+          <div class="about__big-num">12</div>
+          <div class="about__big-label" data-en="Years of mastery" data-de="Jahre Expertise">Years of mastery</div>
+          <div class="about__big-sub" data-en="12 countries · 180+ projects · 94% retention" data-de="12 Länder · 180+ Projekte · 94% Bindungsrate">12 countries · 180+ projects · 94% retention</div>
+        </div>
+        <div class="about__mini-cards">
+          <div class="about__mini tilt-card"><span>🏆</span><div><strong data-en="Top Agency 2024" data-de="Top-Agentur 2024">Top Agency 2024</strong><span data-en="Clutch Verified" data-de="Clutch verifiziert">Clutch Verified</span></div></div>
+          <div class="about__mini tilt-card"><span>🌍</span><div><strong data-en="12 Countries" data-de="12 Länder">12 Countries</strong><span data-en="Active Clients" data-de="Aktive Kunden">Active Clients</span></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== RESULTS / NUMBERS ===== -->
+<!-- ══ RESULTS ════════════════════════════════════════════════════ -->
 <section class="results section" id="results">
-  <div class="results__bg"></div>
   <div class="container">
-
-    <div class="section-header reveal-up">
-      <span class="section-tag" data-en="Proven Results" data-de="Bewiesene Ergebnisse">Proven Results</span>
-      <h2 class="section-title" data-en="Numbers that speak<br>for themselves" data-de="Zahlen, die für sich<br>selbst sprechen">Numbers that speak<br>for themselves</h2>
+    <div class="section-header">
+      <span class="tag" data-en="Proven Results" data-de="Bewiesene Ergebnisse">Proven Results</span>
+      <h2 class="section-title" data-en="Numbers that speak for themselves" data-de="Zahlen, die für sich selbst sprechen">Numbers that speak for themselves</h2>
     </div>
 
-    <div class="results__grid">
-      <div class="result-card reveal-up" data-delay="0">
-        <div class="result-card__num"><span class="count" data-target="340">0</span>%</div>
-        <div class="result-card__label" data-en="Average ROI increase across all campaigns" data-de="Durchschnittlicher ROI-Anstieg über alle Kampagnen">Average ROI increase across all campaigns</div>
+    <div class="rings-grid">
+      <div class="ring-card" data-target="340" data-max="500" data-suffix="%">
+        <svg class="ring-svg" viewBox="0 0 160 160"><defs><linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6040ff"/><stop offset="100%" stop-color="#b87800"/></linearGradient></defs><circle class="ring-bg" cx="80" cy="80" r="68"/><circle class="ring-fill" cx="80" cy="80" r="68" stroke="url(#rg1)"/></svg>
+        <div class="ring-body"><div class="ring-num"><span class="ring-count">0</span>%</div><div class="ring-lbl" data-en="Avg. ROI Growth" data-de="Ø ROI-Wachstum">Avg. ROI Growth</div></div>
       </div>
-      <div class="result-card reveal-up" data-delay="100">
-        <div class="result-card__num"><span class="count" data-target="180">0</span>+</div>
-        <div class="result-card__label" data-en="Successful projects for brands of all sizes" data-de="Erfolgreiche Projekte für Marken jeder Größe">Successful projects for brands of all sizes</div>
+      <div class="ring-card" data-target="180" data-max="200" data-suffix="+">
+        <svg class="ring-svg" viewBox="0 0 160 160"><defs><linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6040ff"/><stop offset="100%" stop-color="#b87800"/></linearGradient></defs><circle class="ring-bg" cx="80" cy="80" r="68"/><circle class="ring-fill" cx="80" cy="80" r="68" stroke="url(#rg2)"/></svg>
+        <div class="ring-body"><div class="ring-num"><span class="ring-count">0</span>+</div><div class="ring-lbl" data-en="Projects Delivered" data-de="Projekte abgeschlossen">Projects Delivered</div></div>
       </div>
-      <div class="result-card reveal-up" data-delay="200">
-        <div class="result-card__num"><span class="count" data-target="94">0</span>%</div>
-        <div class="result-card__label" data-en="Client retention rate — they stay because it works" data-de="Kundenbindungsrate — sie bleiben, weil es funktioniert">Client retention rate — they stay because it works</div>
+      <div class="ring-card" data-target="94" data-max="100" data-suffix="%">
+        <svg class="ring-svg" viewBox="0 0 160 160"><defs><linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6040ff"/><stop offset="100%" stop-color="#b87800"/></linearGradient></defs><circle class="ring-bg" cx="80" cy="80" r="68"/><circle class="ring-fill" cx="80" cy="80" r="68" stroke="url(#rg3)"/></svg>
+        <div class="ring-body"><div class="ring-num"><span class="ring-count">0</span>%</div><div class="ring-lbl" data-en="Client Retention" data-de="Kundenbindungsrate">Client Retention</div></div>
       </div>
-      <div class="result-card reveal-up" data-delay="300">
-        <div class="result-card__num">€<span class="count" data-target="48">0</span>M+</div>
-        <div class="result-card__label" data-en="In media spend managed across all channels" data-de="Verwaltetes Mediabudget über alle Kanäle">In media spend managed across all channels</div>
-      </div>
-    </div>
-
-    <!-- Case Study Teaser -->
-    <div class="cases reveal-up">
-      <div class="case-card">
-        <div class="case-card__tag" data-en="E-Commerce" data-de="E-Commerce">E-Commerce</div>
-        <h3 class="case-card__title" data-en="Fashion Brand scales ROAS from 1.8× to 6.2×" data-de="Fashion-Brand skaliert ROAS von 1,8× auf 6,2×">Fashion Brand scales ROAS from 1.8× to 6.2×</h3>
-        <p class="case-card__meta" data-en="Meta + Google | 6 months" data-de="Meta + Google | 6 Monate">Meta + Google | 6 months</p>
-        <div class="case-card__bar"><div class="case-card__bar-fill" style="width:78%"></div></div>
-        <div class="case-card__footer">
-          <span class="case-card__kpi">+244% Revenue</span>
-          <a href="#contact" class="case-card__link" data-en="Read case →" data-de="Fallstudie →">Read case →</a>
-        </div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-card__tag" data-en="B2B SaaS" data-de="B2B SaaS">B2B SaaS</div>
-        <h3 class="case-card__title" data-en="SaaS startup grows MQLs by 380% in 90 days" data-de="SaaS-Startup steigert MQLs um 380% in 90 Tagen">SaaS startup grows MQLs by 380% in 90 days</h3>
-        <p class="case-card__meta" data-en="LinkedIn + HubSpot | 3 months" data-de="LinkedIn + HubSpot | 3 Monate">LinkedIn + HubSpot | 3 months</p>
-        <div class="case-card__bar"><div class="case-card__bar-fill" style="width:92%"></div></div>
-        <div class="case-card__footer">
-          <span class="case-card__kpi">-42% CPL</span>
-          <a href="#contact" class="case-card__link" data-en="Read case →" data-de="Fallstudie →">Read case →</a>
-        </div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-card__tag" data-en="Local Business" data-de="Lokales Unternehmen">Local Business</div>
-        <h3 class="case-card__title" data-en="Regional retailer dominates local search in 4 months" data-de="Regionaler Händler dominiert lokale Suche in 4 Monaten">Regional retailer dominates local search in 4 months</h3>
-        <p class="case-card__meta" data-en="SEO + Local Ads | 4 months" data-de="SEO + Local Ads | 4 Monate">SEO + Local Ads | 4 months</p>
-        <div class="case-card__bar"><div class="case-card__bar-fill" style="width:65%"></div></div>
-        <div class="case-card__footer">
-          <span class="case-card__kpi">+310% Organic Traffic</span>
-          <a href="#contact" class="case-card__link" data-en="Read case →" data-de="Fallstudie →">Read case →</a>
-        </div>
+      <div class="ring-card" data-target="48" data-max="60" data-suffix="M+">
+        <svg class="ring-svg" viewBox="0 0 160 160"><defs><linearGradient id="rg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6040ff"/><stop offset="100%" stop-color="#b87800"/></linearGradient></defs><circle class="ring-bg" cx="80" cy="80" r="68"/><circle class="ring-fill" cx="80" cy="80" r="68" stroke="url(#rg4)"/></svg>
+        <div class="ring-body"><div class="ring-num">€<span class="ring-count">0</span>M+</div><div class="ring-lbl" data-en="Media Spend Managed" data-de="Verwaltetes Mediabudget">Media Spend Managed</div></div>
       </div>
     </div>
 
+    <div class="cases-grid">
+      <div class="case-card tilt-card">
+        <div class="case-tag" data-en="E-Commerce" data-de="E-Commerce">E-Commerce</div>
+        <h3 data-en="Fashion Brand scales ROAS from 1.8× to 6.2×" data-de="Fashion-Brand skaliert ROAS von 1,8× auf 6,2×">Fashion Brand scales ROAS from 1.8× to 6.2×</h3>
+        <p class="case-meta" data-en="Meta + Google · 6 months" data-de="Meta + Google · 6 Monate">Meta + Google · 6 months</p>
+        <div class="case-bar"><div class="case-bar-fill" style="--w:78%"></div></div>
+        <div class="case-foot"><span class="case-kpi">+244% Revenue</span><a href="#contact" class="case-lnk" data-en="Read case →" data-de="Fallstudie →">Read case →</a></div>
+      </div>
+      <div class="case-card tilt-card">
+        <div class="case-tag" data-en="B2B SaaS" data-de="B2B SaaS">B2B SaaS</div>
+        <h3 data-en="SaaS startup grows MQLs by 380% in 90 days" data-de="SaaS-Startup steigert MQLs um 380% in 90 Tagen">SaaS startup grows MQLs by 380% in 90 days</h3>
+        <p class="case-meta" data-en="LinkedIn + HubSpot · 3 months" data-de="LinkedIn + HubSpot · 3 Monate">LinkedIn + HubSpot · 3 months</p>
+        <div class="case-bar"><div class="case-bar-fill" style="--w:92%"></div></div>
+        <div class="case-foot"><span class="case-kpi">-42% CPL</span><a href="#contact" class="case-lnk" data-en="Read case →" data-de="Fallstudie →">Read case →</a></div>
+      </div>
+      <div class="case-card tilt-card">
+        <div class="case-tag" data-en="Local Business" data-de="Lokales Unternehmen">Local Business</div>
+        <h3 data-en="Regional retailer dominates local search in 4 months" data-de="Regionaler Händler dominiert lokale Suche in 4 Monaten">Regional retailer dominates local search in 4 months</h3>
+        <p class="case-meta" data-en="SEO + Local Ads · 4 months" data-de="SEO + Local Ads · 4 Monate">SEO + Local Ads · 4 months</p>
+        <div class="case-bar"><div class="case-bar-fill" style="--w:65%"></div></div>
+        <div class="case-foot"><span class="case-kpi">+310% Organic Traffic</span><a href="#contact" class="case-lnk" data-en="Read case →" data-de="Fallstudie →">Read case →</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== PROCESS ===== -->
-<section class="process section" id="process">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag" data-en="How We Work" data-de="Wie wir arbeiten">How We Work</span>
-      <h2 class="section-title" data-en="From first call to<br>first results — fast." data-de="Vom ersten Gespräch<br>zu ersten Ergebnissen — schnell.">From first call to<br>first results — fast.</h2>
+<!-- ══ PROCESS (sticky) ═══════════════════════════════════════════ -->
+<section class="process" id="process">
+  <div class="process__inner">
+    <div class="process__sticky">
+      <span class="tag" data-en="How We Work" data-de="Wie wir arbeiten">How We Work</span>
+      <h2 class="section-title" data-en="From first call to first results — fast." data-de="Vom ersten Gespräch zu ersten Ergebnissen — schnell.">From first call to first results — fast.</h2>
+      <div class="process__prog-wrap">
+        <div class="process__prog-track"><div class="process__prog-fill" id="procFill"></div></div>
+        <span class="process__prog-lbl" id="procLbl" data-en="Step 1 of 4" data-de="Schritt 1 von 4">Step 1 of 4</span>
+      </div>
     </div>
-
-    <div class="process__steps">
-      <div class="process__step reveal-up" data-delay="0">
+    <div class="process__steps" id="procSteps">
+      <div class="process__step" data-step="1">
         <div class="process__step-num">01</div>
-        <div class="process__step-body">
-          <h3 data-en="Discovery &amp; Audit" data-de="Discovery &amp; Audit">Discovery &amp; Audit</h3>
-          <p data-en="We deep-dive into your brand, competitors, and current performance to uncover hidden growth opportunities." data-de="Wir analysieren intensiv Ihre Marke, Mitbewerber und aktuelle Performance, um verborgene Wachstumschancen zu entdecken.">We deep-dive into your brand, competitors, and current performance to uncover hidden growth opportunities.</p>
-        </div>
-        <div class="process__step-connector"></div>
+        <h3 data-en="Discovery &amp; Audit" data-de="Discovery &amp; Audit">Discovery &amp; Audit</h3>
+        <p data-en="We deep-dive into your brand, competitors, and current performance to uncover hidden growth opportunities." data-de="Wir analysieren intensiv Ihre Marke, Mitbewerber und aktuelle Performance, um verborgene Wachstumschancen zu entdecken.">We deep-dive into your brand, competitors, and current performance to uncover hidden growth opportunities.</p>
       </div>
-
-      <div class="process__step reveal-up" data-delay="100">
+      <div class="process__step" data-step="2">
         <div class="process__step-num">02</div>
-        <div class="process__step-body">
-          <h3 data-en="Strategy Blueprint" data-de="Strategie-Blueprint">Strategy Blueprint</h3>
-          <p data-en="A custom growth roadmap tailored to your goals, budget, and timeline — clear milestones, no vague promises." data-de="Eine individuelle Wachstums-Roadmap, abgestimmt auf Ihre Ziele, Budget und Zeitplan — klare Meilensteine, keine vagen Versprechen.">A custom growth roadmap tailored to your goals, budget, and timeline — clear milestones, no vague promises.</p>
-        </div>
-        <div class="process__step-connector"></div>
+        <h3 data-en="Strategy Blueprint" data-de="Strategie-Blueprint">Strategy Blueprint</h3>
+        <p data-en="A custom growth roadmap tailored to your goals, budget, and timeline — clear milestones, no vague promises." data-de="Eine individuelle Wachstums-Roadmap, abgestimmt auf Ihre Ziele, Budget und Zeitplan — klare Meilensteine.">A custom growth roadmap tailored to your goals, budget, and timeline — clear milestones, no vague promises.</p>
       </div>
-
-      <div class="process__step reveal-up" data-delay="200">
+      <div class="process__step" data-step="3">
         <div class="process__step-num">03</div>
-        <div class="process__step-body">
-          <h3 data-en="Launch &amp; Optimize" data-de="Start &amp; Optimierung">Launch &amp; Optimize</h3>
-          <p data-en="We execute at speed, A/B testing relentlessly and adjusting in real-time based on data signals." data-de="Wir arbeiten schnell, testen kontinuierlich A/B und passen in Echtzeit auf Basis von Datensignalen an.">We execute at speed, A/B testing relentlessly and adjusting in real-time based on data signals.</p>
-        </div>
-        <div class="process__step-connector"></div>
+        <h3 data-en="Launch &amp; Optimize" data-de="Start &amp; Optimierung">Launch &amp; Optimize</h3>
+        <p data-en="We execute at speed, A/B testing relentlessly and adjusting in real-time based on data signals." data-de="Wir arbeiten schnell, testen kontinuierlich A/B und passen in Echtzeit auf Basis von Datensignalen an.">We execute at speed, A/B testing relentlessly and adjusting in real-time based on data signals.</p>
       </div>
-
-      <div class="process__step reveal-up" data-delay="300">
+      <div class="process__step" data-step="4">
         <div class="process__step-num">04</div>
-        <div class="process__step-body">
-          <h3 data-en="Scale &amp; Report" data-de="Skalierung &amp; Reporting">Scale &amp; Report</h3>
-          <p data-en="What works gets doubled down on. Monthly reporting with full transparency — you always know exactly where your money goes." data-de="Was funktioniert, wird ausgebaut. Monatliches Reporting mit voller Transparenz — Sie wissen immer genau, wo Ihr Geld hingeht.">What works gets doubled down on. Monthly reporting with full transparency — you always know exactly where your money goes.</p>
-        </div>
+        <h3 data-en="Scale &amp; Report" data-de="Skalierung &amp; Reporting">Scale &amp; Report</h3>
+        <p data-en="What works gets doubled down on. Monthly reporting with full transparency — you always know exactly where your money goes." data-de="Was funktioniert, wird ausgebaut. Monatliches Reporting mit voller Transparenz — Sie wissen immer genau, wo Ihr Geld hingeht.">What works gets doubled down on. Monthly reporting with full transparency — you always know exactly where your money goes.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
+<!-- ══ TESTIMONIALS (carousel) ═══════════════════════════════════ -->
 <section class="testimonials section" id="testimonials">
   <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag" data-en="Testimonials" data-de="Referenzen">Testimonials</span>
-      <h2 class="section-title" data-en="Clients who grew<br>with us" data-de="Kunden, die mit uns<br>gewachsen sind">Clients who grew<br>with us</h2>
+    <div class="section-header">
+      <span class="tag" data-en="Testimonials" data-de="Referenzen">Testimonials</span>
+      <h2 class="section-title" data-en="Clients who grew with us" data-de="Kunden, die mit uns gewachsen sind">Clients who grew with us</h2>
     </div>
 
-    <div class="testimonials__grid">
-
-      <div class="testimonial-card reveal-up" data-delay="0">
-        <div class="testimonial-card__stars">★★★★★</div>
-        <p class="testimonial-card__quote" data-en='"VEN completely transformed our digital presence. Within six months our revenue from online channels tripled. They don't just run campaigns — they become true partners in your growth."' data-de='"VEN hat unsere digitale Präsenz komplett verändert. Innerhalb von sechs Monaten verdreifachte sich unser Online-Umsatz. Sie führen nicht nur Kampagnen durch — sie werden echte Partner in Ihrem Wachstum."'>
-          "VEN completely transformed our digital presence. Within six months our revenue from online channels tripled. They don't just run campaigns — they become true partners in your growth."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar">MK</div>
-          <div>
-            <strong>Markus K.</strong>
-            <span data-en="CEO, Berliner Homestore" data-de="CEO, Berliner Homestore">CEO, Berliner Homestore</span>
-          </div>
+    <div class="carousel">
+      <div class="carousel__track" id="carouselTrack">
+        <div class="carousel__slide active">
+          <div class="carousel__stars">★★★★★</div>
+          <p class="carousel__text" data-en='"VEN completely transformed our digital presence. Within six months our revenue from online channels tripled. They don't just run campaigns — they become true partners in your growth."' data-de='"VEN hat unsere digitale Präsenz komplett verändert. Innerhalb von sechs Monaten verdreifachte sich unser Online-Umsatz. Sie werden echte Partner in Ihrem Wachstum."'>"VEN completely transformed our digital presence. Within six months our revenue from online channels tripled. They don't just run campaigns — they become true partners in your growth."</p>
+          <div class="carousel__author"><div class="carousel__avatar">MK</div><div><strong>Markus K.</strong><span data-en="CEO, Berliner Homestore" data-de="CEO, Berliner Homestore">CEO, Berliner Homestore</span></div></div>
+        </div>
+        <div class="carousel__slide">
+          <div class="carousel__stars">★★★★★</div>
+          <p class="carousel__text" data-en='"The team at VEN is incredibly sharp. They found inefficiencies in our ad spend we never knew existed and reinvested those savings into channels that actually moved the needle."' data-de='"Das Team von VEN ist unglaublich scharf. Sie entdeckten Ineffizienzen in unserem Werbebudget, die wir nie kannten, und reinvestierten diese Einsparungen in Kanäle, die wirklich etwas bewirkten."'>"The team at VEN is incredibly sharp. They found inefficiencies in our ad spend we never knew existed and reinvested those savings into channels that actually moved the needle."</p>
+          <div class="carousel__author"><div class="carousel__avatar">SL</div><div><strong>Sophie L.</strong><span data-en="CMO, TechFlow GmbH" data-de="CMO, TechFlow GmbH">CMO, TechFlow GmbH</span></div></div>
+        </div>
+        <div class="carousel__slide">
+          <div class="carousel__stars">★★★★★</div>
+          <p class="carousel__text" data-en='"Finally an agency that speaks plain language and delivers real results. No buzzwords, no black boxes — just clear strategy and measurable outcomes."' data-de='"Endlich eine Agentur, die klar spricht und echte Ergebnisse liefert. Keine Buzzwords, keine Black Boxes — nur klare Strategie und messbare Ergebnisse."'>"Finally an agency that speaks plain language and delivers real results. No buzzwords, no black boxes — just clear strategy and measurable outcomes."</p>
+          <div class="carousel__author"><div class="carousel__avatar">RH</div><div><strong>Ralf H.</strong><span data-en="Founder, Alpina Sports" data-de="Gründer, Alpina Sports">Founder, Alpina Sports</span></div></div>
         </div>
       </div>
-
-      <div class="testimonial-card reveal-up" data-delay="150">
-        <div class="testimonial-card__stars">★★★★★</div>
-        <p class="testimonial-card__quote" data-en='"The team at VEN is incredibly sharp. They found inefficiencies in our ad spend we never knew existed and reinvested those savings into channels that actually moved the needle."' data-de='"Das Team von VEN ist unglaublich scharf. Sie entdeckten Ineffizienzen in unserem Werbebudget, die wir nie kannten, und reinvestierten diese Einsparungen in Kanäle, die wirklich etwas bewirkten."'>
-          "The team at VEN is incredibly sharp. They found inefficiencies in our ad spend we never knew existed and reinvested those savings into channels that actually moved the needle."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar">SL</div>
-          <div>
-            <strong>Sophie L.</strong>
-            <span data-en="CMO, TechFlow GmbH" data-de="CMO, TechFlow GmbH">CMO, TechFlow GmbH</span>
-          </div>
+      <div class="carousel__controls">
+        <button class="carousel__btn" id="carouselPrev">←</button>
+        <div class="carousel__dots" id="carouselDots">
+          <button class="dot active" data-idx="0"></button>
+          <button class="dot" data-idx="1"></button>
+          <button class="dot" data-idx="2"></button>
         </div>
-      </div>
-
-      <div class="testimonial-card reveal-up" data-delay="300">
-        <div class="testimonial-card__stars">★★★★★</div>
-        <p class="testimonial-card__quote" data-en='"Finally an agency that speaks plain language and delivers real results. No buzzwords, no black boxes — just clear strategy and measurable outcomes."' data-de='"Endlich eine Agentur, die klar spricht und echte Ergebnisse liefert. Keine Buzzwords, keine Black Boxes — nur klare Strategie und messbare Ergebnisse."'>
-          "Finally an agency that speaks plain language and delivers real results. No buzzwords, no black boxes — just clear strategy and measurable outcomes."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar">RH</div>
-          <div>
-            <strong>Ralf H.</strong>
-            <span data-en="Founder, Alpina Sports" data-de="Gründer, Alpina Sports">Founder, Alpina Sports</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Logos -->
-    <div class="partners reveal-up">
-      <span class="partners__label" data-en="Trusted by teams at" data-de="Vertraut von Teams bei">Trusted by teams at</span>
-      <div class="partners__logos">
-        <div class="partner-logo">Google Partner</div>
-        <div class="partner-logo">Meta Business</div>
-        <div class="partner-logo">HubSpot Certified</div>
-        <div class="partner-logo">LinkedIn Marketing</div>
-        <div class="partner-logo">Shopify Plus</div>
+        <button class="carousel__btn" id="carouselNext">→</button>
       </div>
     </div>
 
+    <div class="partners">
+      <span class="partners__lbl" data-en="Trusted by teams at" data-de="Vertraut von Teams bei">Trusted by teams at</span>
+      <div class="partners__list">
+        <span class="partner">Google Partner</span>
+        <span class="partner">Meta Business</span>
+        <span class="partner">HubSpot Certified</span>
+        <span class="partner">LinkedIn Marketing</span>
+        <span class="partner">Shopify Plus</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- ══ CONTACT ════════════════════════════════════════════════════ -->
 <section class="contact section" id="contact">
-  <div class="contact__bg-glow"></div>
+  <div class="contact__glow"></div>
   <div class="container">
-    <div class="contact__inner">
-
-      <div class="contact__left reveal-left">
-        <span class="section-tag" data-en="Get In Touch" data-de="Kontakt aufnehmen">Get In Touch</span>
-        <h2 class="section-title" data-en="Let's build<br>something great<br>together." data-de="Lassen Sie uns<br>gemeinsam etwas<br>Großartiges aufbauen.">Let's build<br>something great<br>together.</h2>
-        <p data-en="Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email." data-de="Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden mit einer maßgeschneiderten Antwort — keine Template-E-Mail.">Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email.</p>
-
-        <div class="contact__info">
-          <div class="contact__info-item">
-            <span class="contact__info-icon">✉</span>
-            <a href="mailto:hello@ven-marketing.com">hello@ven-marketing.com</a>
-          </div>
-          <div class="contact__info-item">
-            <span class="contact__info-icon">☎</span>
-            <a href="tel:+4930000000">+49 30 000 000</a>
-          </div>
-          <div class="contact__info-item">
-            <span class="contact__info-icon">◎</span>
-            <span data-en="Berlin, Germany" data-de="Berlin, Deutschland">Berlin, Germany</span>
-          </div>
+    <div class="contact__grid">
+      <div class="contact__left">
+        <span class="tag" data-en="Get In Touch" data-de="Kontakt aufnehmen">Get In Touch</span>
+        <h2 class="section-title" data-en="Let's build something great together." data-de="Lassen Sie uns gemeinsam etwas Großartiges aufbauen.">Let's build something great together.</h2>
+        <p data-en="Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email." data-de="Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden mit einer maßgeschneiderten Antwort.">Tell us about your project. We'll get back within 24 hours with a tailored response — not a template email.</p>
+        <div class="contact__details">
+          <div class="contact__detail"><span>✉</span><a href="mailto:hello@ven-marketing.com">hello@ven-marketing.com</a></div>
+          <div class="contact__detail"><span>☎</span><a href="tel:+4930000000">+49 30 000 000</a></div>
+          <div class="contact__detail"><span>◎</span><span data-en="Berlin, Germany" data-de="Berlin, Deutschland">Berlin, Germany</span></div>
         </div>
       </div>
-
-      <div class="contact__form-wrap reveal-right">
+      <div class="contact__right">
         <form class="contact-form" id="contactForm" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -506,21 +437,21 @@
           <div class="form-group">
             <label data-en="I'm interested in..." data-de="Ich interessiere mich für...">I'm interested in...</label>
             <select name="service">
-              <option value="" data-en="Select a service" data-de="Leistung auswählen">Select a service</option>
-              <option value="performance" data-en="Performance Marketing" data-de="Performance Marketing">Performance Marketing</option>
-              <option value="seo" data-en="SEO &amp; Content" data-de="SEO &amp; Content">SEO &amp; Content</option>
-              <option value="automation" data-en="Marketing Automation" data-de="Marketing-Automatisierung">Marketing Automation</option>
-              <option value="social" data-en="Social Media" data-de="Social Media">Social Media</option>
-              <option value="analytics" data-en="Analytics" data-de="Analytics">Analytics</option>
-              <option value="other" data-en="Something else" data-de="Etwas anderes">Something else</option>
+              <option value=""             data-en="Select a service"       data-de="Leistung auswählen">Select a service</option>
+              <option value="performance"  data-en="Performance Marketing"  data-de="Performance Marketing">Performance Marketing</option>
+              <option value="seo"          data-en="SEO &amp; Content"      data-de="SEO &amp; Content">SEO &amp; Content</option>
+              <option value="automation"   data-en="Marketing Automation"   data-de="Marketing-Automatisierung">Marketing Automation</option>
+              <option value="social"       data-en="Social Media"           data-de="Social Media">Social Media</option>
+              <option value="analytics"    data-en="Analytics"              data-de="Analytics">Analytics</option>
+              <option value="other"        data-en="Something else"         data-de="Etwas anderes">Something else</option>
             </select>
           </div>
           <div class="form-group">
             <label data-en="Message" data-de="Nachricht">Message</label>
             <textarea name="message" rows="4" placeholder="Tell us about your goals..."></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--full" data-en="Send Message →" data-de="Nachricht senden →">Send Message →</button>
-          <p class="form__note" data-en="We reply within 24 hours. No spam, ever." data-de="Antwort innerhalb von 24 Stunden. Kein Spam.">We reply within 24 hours. No spam, ever.</p>
+          <button type="submit" class="btn btn--primary btn--full magnetic" data-en="Send Message →" data-de="Nachricht senden →">Send Message →</button>
+          <p class="form-note" data-en="We reply within 24 hours. No spam, ever." data-de="Antwort innerhalb von 24 Stunden. Kein Spam.">We reply within 24 hours. No spam, ever.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="form-success__icon">✓</div>
@@ -528,58 +459,55 @@
           <p data-en="We'll be in touch within 24 hours." data-de="Wir melden uns innerhalb von 24 Stunden.">We'll be in touch within 24 hours.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ══ FOOTER ═════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <span class="footer__logo">VEN<span class="footer__logo-dot">.</span></span>
-        <p data-en="We grow brands with data-driven digital marketing strategies that deliver real, measurable results." data-de="Wir entwickeln Marken mit datengetriebenen digitalen Marketingstrategien, die echte, messbare Ergebnisse liefern.">We grow brands with data-driven digital marketing strategies that deliver real, measurable results.</p>
+        <span class="footer__logo">VEN<span class="footer__dot">.</span></span>
+        <p data-en="We grow brands with data-driven digital marketing strategies that deliver real, measurable results." data-de="Wir entwickeln Marken mit datengetriebenen Marketingstrategien, die echte, messbare Ergebnisse liefern.">We grow brands with data-driven digital marketing strategies that deliver real, measurable results.</p>
       </div>
-
-      <div class="footer__nav">
+      <div class="footer__cols">
         <div class="footer__col">
           <h4 data-en="Services" data-de="Leistungen">Services</h4>
           <ul>
             <li><a href="#services" data-en="Performance Marketing" data-de="Performance Marketing">Performance Marketing</a></li>
-            <li><a href="#services" data-en="SEO &amp; Content" data-de="SEO &amp; Content">SEO &amp; Content</a></li>
-            <li><a href="#services" data-en="Marketing Automation" data-de="Marketing-Automatisierung">Marketing Automation</a></li>
-            <li><a href="#services" data-en="Social Media" data-de="Social Media">Social Media</a></li>
-            <li><a href="#services" data-en="Analytics" data-de="Analytics">Analytics</a></li>
+            <li><a href="#services" data-en="SEO &amp; Content"     data-de="SEO &amp; Content">SEO &amp; Content</a></li>
+            <li><a href="#services" data-en="Marketing Automation"  data-de="Marketing-Automatisierung">Marketing Automation</a></li>
+            <li><a href="#services" data-en="Social Media"          data-de="Social Media">Social Media</a></li>
+            <li><a href="#services" data-en="Analytics"             data-de="Analytics">Analytics</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 data-en="Company" data-de="Unternehmen">Company</h4>
           <ul>
-            <li><a href="#about" data-en="About Us" data-de="Über uns">About Us</a></li>
-            <li><a href="#results" data-en="Case Studies" data-de="Fallstudien">Case Studies</a></li>
-            <li><a href="#process" data-en="Our Process" data-de="Unser Prozess">Our Process</a></li>
-            <li><a href="#contact" data-en="Careers" data-de="Karriere">Careers</a></li>
+            <li><a href="#about"   data-en="About Us"      data-de="Über uns">About Us</a></li>
+            <li><a href="#results" data-en="Case Studies"  data-de="Fallstudien">Case Studies</a></li>
+            <li><a href="#process" data-en="Our Process"   data-de="Unser Prozess">Our Process</a></li>
+            <li><a href="#contact" data-en="Careers"       data-de="Karriere">Careers</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 data-en="Follow Us" data-de="Folgen Sie uns">Follow Us</h4>
           <ul>
-            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="#" target="_blank" rel="noopener">X / Twitter</a></li>
-            <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="#" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" rel="noopener">Instagram</a></li>
+            <li><a href="#" rel="noopener">X / Twitter</a></li>
+            <li><a href="#" rel="noopener">YouTube</a></li>
           </ul>
         </div>
       </div>
     </div>
-
     <div class="footer__bottom">
       <span>© 2025 VEN Marketing GmbH. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></span>
       <div class="footer__legal">
-        <a href="#" data-en="Privacy Policy" data-de="Datenschutz">Privacy Policy</a>
-        <a href="#" data-en="Imprint" data-de="Impressum">Imprint</a>
-        <a href="#" data-en="Cookie Settings" data-de="Cookie-Einstellungen">Cookie Settings</a>
+        <a href="#" data-en="Privacy Policy"    data-de="Datenschutz">Privacy Policy</a>
+        <a href="#" data-en="Imprint"           data-de="Impressum">Imprint</a>
+        <a href="#" data-en="Cookie Settings"   data-de="Cookie-Einstellungen">Cookie Settings</a>
       </div>
     </div>
   </div>
