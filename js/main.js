@@ -375,8 +375,8 @@
     const data = new FormData(form);
 
     try {
-      const res  = await fetch('send.php', { method: 'POST', body: data });
-      const json = await res.json();
+      const res  = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
+      const json = res.ok ? { success: true } : { success: false };
 
       if (json.success) {
         form.style.display = 'none';
