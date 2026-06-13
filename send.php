@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Destination
-define('TO_EMAIL', 'volttexon@outlook.com');
+define('TO_EMAIL', 'info@VEN-Marketing.info');
 define('TO_NAME',  'VEN Marketing');
 
 // Sanitise input
