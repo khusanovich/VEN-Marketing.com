@@ -375,8 +375,8 @@
     const data = new FormData(form);
 
     try {
-      const res  = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
-      const json = res.ok ? { success: true } : { success: false };
+      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
 
       if (json.success) {
         form.style.display = 'none';
